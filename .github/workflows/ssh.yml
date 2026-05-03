@@ -1,0 +1,14 @@
+name: SSH Debug Session
+on: workflow_dispatch # This lets you start it manually
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      with:
+        limit-access-to-actor: true # Only you can connect
